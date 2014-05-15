@@ -38,10 +38,10 @@ ENTRY(v7wbi_flush_user_tlb_range)
 	dsb
  	mov	r0, r0, lsr #PAGE_SHIFT		@ align address
  	mov	r1, r1, lsr #PAGE_SHIFT
+ 	asid	r3, r3	        		@ mask ASID
 #ifdef CONFIG_ARM_ERRATA_720789
-	mov	r3, #0
-#else
- 	asid	r3, r3				@ mask ASID
+	ALT_SMP(W(mov)	r3, #0	)
+	ALT_UP(W(nop)		)
 #endif
  	orr	r0, r3, r0, lsl #PAGE_SHIFT	@ Create initial MVA
  	mov	r1, r1, lsl #PAGE_SHIFT
@@ -54,7 +54,6 @@ ENTRY(v7wbi_flush_user_tlb_range)
  	ALT_UP(mcr	p15, 0, r0, c8, c7, 1)	@ TLB invalidate U MVA
  
  	add	r0, r0, #PAGE_SZ
-@@ -67,7 +75,11 @@
  	mov	r0, r0, lsl #PAGE_SHIFT
  	mov	r1, r1, lsl #PAGE_SHIFT
  1:
