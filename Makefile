@@ -1,6 +1,6 @@
 VERSION = 3
 PATCHLEVEL = 4
-SUBLEVEL = 7
+SUBLEVEL = 8
 EXTRAVERSION = 
 NAME = Saber-toothed Squirrel
 
@@ -193,7 +193,7 @@ SUBARCH := $(shell uname -m | sed -e s/i.86/i386/ -e s/sun4u/sparc64/ \
 # Note: Some architectures assign CROSS_COMPILE in their arch/*/Makefile
 export KBUILD_BUILDHOST := $(SUBARCH)
 ARCH		?= arm
-CROSS_COMPILE	?= /home/adam0524/arm-eabi-4.7/bin/arm-eabi-
+CROSS_COMPILE	?= /home/adam0524/Linaro-GCC/bin/arm-eabi-
 
 
 # Architecture as present in compile.h
