@@ -1,7 +1,7 @@
 VERSION = 3
 PATCHLEVEL = 4
 SUBLEVEL = 8
-EXTRAVERSION = 
+EXTRAVERSION = _HispAsian_Kernel
 NAME = Saber-toothed Squirrel
 
 # *DOCUMENTATION*
