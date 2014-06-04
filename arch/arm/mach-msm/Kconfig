@@ -1824,12 +1824,6 @@ config MSM_CPU_FREQ_MIN
 
 endif # CPU_FREQ_MSM
 
-config GPU_OVERCLOCK
-	bool "Enable GPU Overclocking option"
-	default n
-	help
-	  Kraint 600 ab GPU overclock up to 600 MHz
-
 config MSM_AVS_HW
 	bool "Enable Adaptive Voltage Scaling (AVS)"
 	default n
